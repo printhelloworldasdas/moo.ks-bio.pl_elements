@@ -19,22 +19,6 @@ html, body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-shadow: 0 0 10px #7ee55980;
-	animation: pulseGlow 2s infinite;
-}
-
-@keyframes pulseGlow {
-	0% {
-		transform: translate(-50%, -50%) scale(1);
-		text-shadow: 0 0 10px #7ee55980;
-	}
-	50% {
-		transform: translate(-50%, -50%) scale(1.05);
-		text-shadow: 0 0 15px #7ee559b0;
-	}
-	100% {
-		transform: translate(-50%, -50%) scale(1);
-		text-shadow: 0 0 10px #7ee55980;
-	}
 }
 
 /* MENU */
@@ -48,21 +32,9 @@ html, body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	white-space: nowrap;
-	animation: fadeIn 0.5s ease-out forwards;
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translate(-50%, -45%);
-	}
-	to {
-		opacity: 1;
-		transform: translate(-50%, -50%);
-	}
-}
-
-/* MENU CONTAINER - CORRECCIÓN PARA CENTRAR */
+/* MENU CONTAINER */
 .menu-container {
 	width: 30%;
 	background: #2a2a2a;
@@ -70,21 +42,16 @@ html, body {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 	display: flex;
 	flex-direction: column;
-	justify-content: center; /* Cambiado de space-evenly a center */
+	justify-content: space-evenly;
 	align-items: center;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	padding: 2% 0; /* Añadido padding para espacio vertical */
 }
 
-.menu-container:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+.menu-container > :first-child {
+	margin-top: 5%;
 }
 
-/* Eliminado el margin-top del primer hijo ya que usamos justify-content: center */
 .menu-container > * {
-	margin: 0.5em 0; /* Reducido el margen vertical */
-	width: 90%; /* Aseguramos ancho consistente */
+	margin: 0 5% 5% 5%;
 }
 
 /* CANVAS */
@@ -92,18 +59,6 @@ html, body {
 	position: relative;
 	width: 90%;
 	aspect-ratio: 1 / 1;
-	animation: slideUp 0.5s ease-out;
-}
-
-@keyframes slideUp {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
 }
 
 #canvasBackground {
@@ -119,7 +74,6 @@ html, body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	transition: background-color 0.3s ease;
 }
 
 #canvas {
@@ -127,11 +81,6 @@ html, body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	transition: transform 0.2s ease;
-}
-
-#canvas:hover {
-	transform: scale(1.01);
 }
 
 /* FORM ELEMENTS */
@@ -142,13 +91,6 @@ input {
 	border: 1px solid #555;
 	border-radius: 0.3em;
 	padding: 0.3em 0.5em;
-	transition: all 0.2s ease;
-}
-
-input:focus {
-	outline: none;
-	border-color: #7ee559;
-	box-shadow: 0 0 5px #7ee55980;
 }
 
 input[type="checkbox"],
@@ -158,12 +100,6 @@ input[type="radio"] {
 	margin-right: 0.65rem;
 	cursor: pointer;
 	accent-color: #7ee559;
-	transition: transform 0.2s ease;
-}
-
-input[type="checkbox"]:hover,
-input[type="radio"]:hover {
-	transform: scale(1.1);
 }
 
 input[type="number"] {
@@ -194,85 +130,30 @@ input[type="text"] {
 	border-radius: 0.5vw;
 	cursor: pointer;
 	transition: all 0.25s ease;
-	position: relative;
-	overflow: hidden;
-}
-
-.button::after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 5px;
-	height: 5px;
-	background: rgba(255, 255, 255, 0.5);
-	opacity: 0;
-	border-radius: 100%;
-	transform: scale(1, 1) translate(-50%);
-	transform-origin: 50% 50%;
 }
 
 .button:hover {
 	background-color: #6fc94e;
 	transform: scale(1.02);
-	box-shadow: 0 0 10px #7ee55980;
 }
 
-.button:focus:not(:active)::after {
-	animation: ripple 0.6s ease-out;
-}
-
-@keyframes ripple {
-	0% {
-		transform: scale(0, 0);
-		opacity: 0.5;
-	}
-	100% {
-		transform: scale(20, 20);
-		opacity: 0;
-	}
-}
-
-/* SELECT CATEGORY - CORRECCIÓN PARA CENTRAR */
+/* SELECT CATEGORY */
 .selectCategory {
 	font-size: 21.5px;
-	width: 100%; /* Cambiado de 90% a 100% */
+	width: 90%;
 	color: #ddd;
 	cursor: pointer;
 	transition: all 0.2s ease;
-	padding: 0.4em 0; /* Ajustado padding para mejor espaciado */
-	position: relative;
-	text-align: center; /* Asegura que el texto esté centrado */
-}
-
-.selectCategory::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%); /* Centra el subrayado */
-	width: 0;
-	height: 2px;
-	background-color: #7ee559;
-	transition: width 0.3s ease;
+	padding: 0.2em 0;
 }
 
 .selectCategory.selected {
+	border-left: 0.25em solid #7ee559;
 	color: #7ee559;
-	border-left: none; /* Eliminado el borde izquierdo */
-}
-
-.selectCategory.selected::after {
-	width: 80%; /* Ancho del subrayado */
 }
 
 .selectCategory:hover {
 	color: #aaa;
-	transform: translateX(5px);
-}
-
-.selectCategory:hover::after {
-	width: 80%; /* Ancho del subrayado al hacer hover */
 }
 
 /* SECTION */
@@ -280,18 +161,6 @@ section {
 	margin-top: 5%;
 	width: 90%;
 	overflow-y: auto;
-	animation: fadeInSection 0.5s ease-out;
-}
-
-@keyframes fadeInSection {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
 }
 
 section > * {
@@ -317,7 +186,6 @@ section > :last-child {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .container > * {
@@ -326,31 +194,17 @@ section > :last-child {
 	background-color: #3b472d;
 	border-radius: 12%;
 	margin: 3%;
-	transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+	transition: background 0.3s, transform 0.2s;
 }
 
 .container > *:hover {
 	background-color: #4c5b38;
 	transform: scale(1.03);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .container > *.selected {
 	border-radius: 100%;
 	box-shadow: 0 0 10px #7ee55980;
-	animation: pulseSelected 1.5s infinite;
-}
-
-@keyframes pulseSelected {
-	0% {
-		box-shadow: 0 0 10px #7ee55980;
-	}
-	50% {
-		box-shadow: 0 0 15px #7ee559b0;
-	}
-	100% {
-		box-shadow: 0 0 10px #7ee55980;
-	}
 }
 
 #player > .container > * {
@@ -376,7 +230,6 @@ section > :last-child {
 .selectColour:hover {
 	border-radius: 10%;
 	box-shadow: 0 0 8px #7ee55999;
-	transform: scale(1.1);
 }
 
 /* BOOLEANS & RADIOS */
@@ -386,12 +239,6 @@ section > :last-child {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	transition: all 0.2s ease;
-}
-
-.boolean:hover,
-.radio:hover {
-	transform: translateX(5px);
 }
 
 /* MAP */
@@ -403,11 +250,6 @@ section > :last-child {
 	overflow: hidden;
 	background-image: linear-gradient(to right, rgba(0, 0, 50, 0.4), rgba(0, 0, 50, 0.4)),
 		linear-gradient(to bottom, #444, #444 16.5%, #4e5f34 16.5%, #4e5f34 47.1%, #3b4a6f 47.1%, #3b4a6f 52.9%, #4e5f34 52.9%, #4e5f34 83.5%, #6c5b30 83.5%, #6c5b30);
-	transition: transform 0.3s ease;
-}
-
-#map:hover {
-	transform: scale(1.01);
 }
 
 /* POSITION */
@@ -421,49 +263,4 @@ section > :last-child {
 	top: 48%;
 	pointer-events: none;
 	box-shadow: 0 0 10px #7ee559;
-	animation: pulsePosition 2s infinite;
-}
-
-@keyframes pulsePosition {
-	0% {
-		transform: scale(1);
-		box-shadow: 0 0 10px #7ee559;
-	}
-	50% {
-		transform: scale(1.1);
-		box-shadow: 0 0 15px #7ee559;
-	}
-	100% {
-		transform: scale(1);
-		box-shadow: 0 0 10px #7ee559;
-	}
-}
-
-/* Custom animations for elements when they appear */
-.animate-delay-1 {
-	animation-delay: 0.1s;
-}
-.animate-delay-2 {
-	animation-delay: 0.2s;
-}
-.animate-delay-3 {
-	animation-delay: 0.3s;
-}
-
-/* Responsive animations */
-@media (max-width: 768px) {
-	.menu-container {
-		width: 90%;
-		margin-bottom: 20px;
-	}
-	
-	#menu {
-		flex-direction: column;
-		height: auto;
-	}
-	
-	.container > * {
-		width: 20%;
-		margin: 2%;
-	}
 }
