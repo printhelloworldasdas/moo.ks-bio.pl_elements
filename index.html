@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Moo.KS-Bio.Pl Elements Remake</title>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hammersmith+One" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 		<link rel="stylesheet" href="main.css" />
 		<link rel="icon" type="image/png" href="favicon.png" />
 		<meta content="kookywarrior.github.io" property="og:site_name" />
@@ -13,18 +12,18 @@
 		<meta content="Struggling to find game object img for making yt thumbnail? This might help you out!" property="og:description" />
 	</head>
 	<body>
-		<div id="loading" class="animate__animated animate__pulse animate__infinite">LOADING...</div>
+		<div id="loading">LOADING...</div>
 		<div id="menu">
 			<div class="menu-container">
-				<div onclick="changeCategory(this)" name="buildings" class="selectCategory selected animate__animated animate__fadeIn">Buildings</div>
-				<div onclick="changeCategory(this)" name="resources" class="selectCategory animate__animated animate__fadeIn">Resources</div>
-				<div onclick="changeCategory(this)" name="hats" class="selectCategory animate__animated animate__fadeIn">Hats</div>
-				<div onclick="changeCategory(this)" name="access" class="selectCategory animate__animated animate__fadeIn">Accessories</div>
-				<div onclick="changeCategory(this)" name="weapons" class="selectCategory animate__animated animate__fadeIn">Weapons</div>
-				<div onclick="changeCategory(this)" name="projectiles" class="selectCategory animate__animated animate__fadeIn">Projectiles</div>
-				<div onclick="changeCategory(this)" name="player" class="selectCategory animate__animated animate__fadeIn">Player</div>
-				<div onclick="changeCategory(this)" name="animals" class="selectCategory animate__animated animate__fadeIn">Animals</div>
-				<div onclick="changeCategory(this)" name="background" class="selectCategory animate__animated animate__fadeIn">Background</div>
+				<div onclick="changeCategory(this)" name="buildings" class="selectCategory selected">Buildings</div>
+				<div onclick="changeCategory(this)" name="resources" class="selectCategory">Resources</div>
+				<div onclick="changeCategory(this)" name="hats" class="selectCategory">Hats</div>
+				<div onclick="changeCategory(this)" name="access" class="selectCategory">Accessories</div>
+				<div onclick="changeCategory(this)" name="weapons" class="selectCategory">Weapons</div>
+				<div onclick="changeCategory(this)" name="projectiles" class="selectCategory">Projectiles</div>
+				<div onclick="changeCategory(this)" name="player" class="selectCategory">Player</div>
+				<div onclick="changeCategory(this)" name="animals" class="selectCategory">Animals</div>
+				<div onclick="changeCategory(this)" name="background" class="selectCategory">Background</div>
 			</div>
 			<div class="menu-container">
 				<div id="canvasContainer">
@@ -40,9 +39,9 @@
 					<input type="number" id="resolution" placeholder="Resolution" value="500" style="float: left; width: 40%" />
 					<input type="number" id="zoom" placeholder="Zoom Scale" value="25" style="float: right; width: 40%" />
 				</div>
-				<div onclick="generate()" class="button animate__animated animate__bounceIn">Regenerate</div>
-				<div onclick="copy()" id="copy" class="button animate__animated animate__bounceIn">Copy</div>
-				<div onclick="save()" class="button animate__animated animate__bounceIn">Save</div>
+				<div onclick="generate()" class="button">Regenerate</div>
+				<div onclick="copy()" id="copy" class="button">Copy</div>
+				<div onclick="save()" class="button">Save</div>
 			</div>
 			<div class="menu-container" style="height: 100%; justify-content: start">
 				<section id="buildings">
