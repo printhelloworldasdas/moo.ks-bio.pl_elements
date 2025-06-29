@@ -48,7 +48,7 @@ async function preload() {
 	}
 
 	for (const name in PROJECTILES) {
-		var url = `https://moo.ks-bio.pl/img/weapons/${name}.png`
+		var url = `./img/weapons/${name}.png`
 		if (name === "turret") {
 			const tmpCanvas = document.createElement("canvas")
 			tmpCanvas.width = tmpCanvas.height = 100
@@ -88,7 +88,7 @@ async function preload() {
 			tmpElement.className = "selectWeapon"
 			tmpElement.setAttribute("name", name)
 			tmpElement.setAttribute("variant", variant)
-			tmpElement.style.backgroundImage = `url(${WEAPONS[name].src === "bow_1" && variant === "_d" ? "" : "https://moo.ks-bio.pl/"}img/weapons/${
+			tmpElement.style.backgroundImage = `url(${WEAPONS[name].src === "bow_1" && variant === "_d" ? "" : "./"}img/weapons/${
 				WEAPONS[name].src + variant
 			}.png)`
 			document.getElementById("weaponsContainer").appendChild(tmpElement)
@@ -98,7 +98,7 @@ async function preload() {
 			tmpElement2.className = "selectWeapon"
 			tmpElement2.setAttribute("name", name)
 			tmpElement2.setAttribute("variant", variant)
-			tmpElement2.style.backgroundImage = `url(${WEAPONS[name].src === "bow_1" && variant === "_d" ? "" : "https://moo.ks-bio.pl/"}img/weapons/${
+			tmpElement2.style.backgroundImage = `url(${WEAPONS[name].src === "bow_1" && variant === "_d" ? "" : "./"}img/weapons/${
 				WEAPONS[name].src + variant
 			}.png)`
 			document.getElementById("playerWeaponsContainer").appendChild(tmpElement2)
