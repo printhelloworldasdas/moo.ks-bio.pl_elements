@@ -1,134 +1,216 @@
 const WEAPONS = {
-	toolhammer: {
-		src: "hammer_1",
-		length: 140,
-		width: 140,
-		xOff: -3,
-		yOff: 18
-	},
-	handaxe: {
-		src: "axe_1",
-		length: 140,
-		width: 140,
-		xOff: 3,
-		yOff: 24
-	},
-	greataxe: {
-		src: "great_axe_1",
-		length: 140,
-		width: 140,
-		xOff: -8,
-		yOff: 25
-	},
-	shortsword: {
-		src: "sword_1",
-		iPad: 1.3,
-		length: 130,
-		width: 210,
-		xOff: -8,
-		yOff: 46
-	},
-	katana: {
-		src: "samurai_1",
-		iPad: 1.3,
-		length: 130,
-		width: 210,
-		xOff: -8,
-		yOff: 59
-	},
-	polearm: {
-		src: "spear_1",
-		iPad: 1.3,
-		length: 130,
-		width: 210,
-		xOff: -8,
-		yOff: 53
-	},
-	bat: {
-		src: "bat_1",
-		iPad: 1.3,
-		length: 110,
-		width: 180,
-		xOff: -8,
-		yOff: 53
-	},
-	daggers: {
-		src: "dagger_1",
-		iPad: 0.8,
-		length: 110,
-		width: 110,
-		xOff: 18,
-		yOff: 0
-	},
-	stick: {
-		src: "stick_1",
-		length: 140,
-		width: 140,
-		xOff: 3,
-		yOff: 24
-	},
-	huntingbow: {
-		src: "bow_1",
-		length: 120,
-		width: 120,
-		xOff: -6,
-		yOff: 0,
-		projectile: true
-	},
-	greathammer: {
-		src: "great_hammer_1",
-		length: 140,
-		width: 140,
-		xOff: -9,
-		yOff: 25
-	},
-	woodenshield: {
-		src: "shield_1",
-		length: 120,
-		width: 120,
-		shield: 0.2,
-		xOff: 6,
-		yOff: 0
-	},
-	crossbow: {
-		src: "crossbow_1",
-		aboveHand: true,
-		armS: 0.75,
-		length: 120,
-		width: 120,
-		xOff: -4,
-		yOff: 0,
-		projectile: true
-	},
-	reapetercrossbow: {
-		src: "crossbow_2",
-		aboveHand: true,
-		armS: 0.75,
-		length: 120,
-		width: 120,
-		xOff: -4,
-		yOff: 0,
-		projectile: true
-	},
-	mcgrabby: {
-		src: "grab_1",
-		length: 130,
-		width: 210,
-		xOff: -8,
-		yOff: 53
-	},
-	musket: {
-		src: "musket_1",
-		aboveHand: true,
-		rec: 0.35,
-		armS: 0.6,
-		hndS: 0.3,
-		hndD: 1.6,
-		length: 205,
-		width: 205,
-		xOff: 25,
-		yOff: 0
-	}
+		toolhammer: {
+			src: "hammer_1",
+			length: 140,
+			width: 140,
+			xOff: -3,
+			yOff: 18
+		},
+		handaxe: {
+			src: "axe_1",
+			length: 140,
+			width: 140,
+			xOff: 3,
+			yOff: 24
+		},
+		greataxe: {
+			src: "great_axe_1",
+			length: 140,
+			width: 140,
+			xOff: -8,
+			yOff: 25
+		},
+		shortsword: {
+			src: "sword_1",
+			iPad: 1.3,
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 46
+		},
+		katana: {
+			src: "samurai_1",
+			iPad: 1.3,
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 59
+		},
+		polearm: {
+			src: "spear_1",
+			iPad: 1.3,
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 53
+		},
+		bat: {
+			src: "bat_1",
+			iPad: 1.3,
+			length: 110,
+			width: 180,
+			xOff: -8,
+			yOff: 53
+		},
+		daggers: {
+			src: "dagger_1",
+			iPad: 0.8,
+			length: 110,
+			width: 110,
+			xOff: 18,
+			yOff: 0
+		},
+		stick: {
+			src: "stick_1",
+			length: 140,
+			width: 140,
+			xOff: 3,
+			yOff: 24
+		},
+		huntingbow: {
+			src: "bow_1",
+			length: 120,
+			width: 120,
+			xOff: -6,
+			yOff: 0,
+			projectile: true
+		},
+		greathammer: {
+			src: "great_hammer_1",
+			length: 140,
+			width: 140,
+			xOff: -9,
+			yOff: 25
+		},
+		woodenshield: {
+			src: "shield_1",
+			length: 120,
+			width: 120,
+			shield: 0.2,
+			xOff: 6,
+			yOff: 0
+		},
+		crossbow: {
+			src: "crossbow_1",
+			aboveHand: true,
+			armS: 0.75,
+			length: 120,
+			width: 120,
+			xOff: -4,
+			yOff: 0,
+			projectile: true
+		},
+		reapetercrossbow: {
+			src: "crossbow_2",
+			aboveHand: true,
+			armS: 0.75,
+			length: 120,
+			width: 120,
+			xOff: -4,
+			yOff: 0,
+			projectile: true
+		},
+		mcgrabby: {
+			src: "grab_1",
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 53
+		},
+		musket: {
+			src: "musket_1",
+			aboveHand: true,
+			rec: 0.35,
+			armS: 0.6,
+			hndS: 0.3,
+			hndD: 1.6,
+			length: 205,
+			width: 205,
+			xOff: 25,
+			yOff: 0
+		},
+		bloodhammer: {
+			src: "blod_hammer",
+			length: 140,
+			width: 140,
+			xOff: -3,
+			yOff: 18
+		},
+		pike: {
+			src: "Pike_1",
+			iPad: 1.3,
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 53
+		},
+		bloodaxe: {
+			src: "blod_axe",
+			length: 140,
+			width: 140,
+			xOff: 3,
+			yOff: 24
+		},
+		bloodgreataxe: {
+			src: "blod_great_axe",
+			length: 140,
+			width: 140,
+			xOff: -8,
+			yOff: 25
+		},
+		bloodsword: {
+			src: "blod_sword",
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 46
+		},
+		bloodkatana: {
+			src: "blod_katana",
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 59
+		},
+		bloodpike: {
+			src: "blod_pike",
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 53
+		},
+		bloodbat: {
+			src: "blod_bat",
+			length: 110,
+			width: 180,
+			xOff: -8,
+			yOff: 53
+		},
+		blooddagger: {
+			src: "blod_dagger",
+			length: 110,
+			width: 110,
+			xOff: 18,
+			yOff: 0
+		},
+		pullgun: {
+			src: "pullgun_1",
+			length: 205,
+			width: 205,
+			xOff: 25,
+			yOff: 0,
+			projectile: 7
+		},
+		blade: {
+			src: "blade",
+			iPad: 1.3,
+			length: 130,
+			width: 210,
+			xOff: -8,
+			yOff: 46
+		}
+
+
 }
 const PROJECTILES = {
 	arrow_1: { scale: 103 },
@@ -567,5 +649,8 @@ const ANIMALS = {
 	pet: { scale: 60 },
 	vicky: { scale: 60 },
 	sid: { scale: 83, spriteMlt: 1.8, nameScale: 50 },
-	polar_1: { scale: 77 }
-}
+	polar_1: { scale: 77 },
+	fish_2: { scale: 42 },
+	szkielet: { scale: 99, spriteMlt: 1.8, nameScale: 70 }, // Undead King
+	chicken_2: { scale: 70 } // Added chicken_2
+};
