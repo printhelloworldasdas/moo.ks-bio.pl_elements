@@ -13,7 +13,7 @@ function loadImage(fileName, storage) {
 			resolve(storage[fileName])
 		} else {
 			var tmpSprite = new Image()
-			tmpSprite.src = (fileName === "img/weapons/bow_1_d" ? "" : "https://moo.ks-bio.pl/") + fileName + ".png"
+			tmpSprite.src = (fileName === "img/weapons/bow_1_d" ? "" : "./") + fileName + ".png"
 			tmpSprite.onload = function () {
 				storage[fileName] = tmpSprite
 				resolve(tmpSprite)
@@ -648,38 +648,47 @@ async function onlyPlayer(colour, skin, tail, weapon, weaponVariant, build, proj
 
 	mainContext.drawImage(tmpCanvas, 0, 0)
 	mainContext.setTransform(scaleFillNative, 0, 0, scaleFillNative, mainCanvas.width / 2, mainCanvas.height / 2)
-	if (player.TRIBENAME || player.NAME || player.SKULL || player.CROWN) {
-		mainContext.save()
-		var tmpText = (player.TRIBENAME ? "[" + player.TRIBENAME + "] " : "") + (player.NAME || "")
-		mainContext.font = `30px Hammersmith One`
-		mainContext.fillStyle = "#fff"
-		mainContext.strokeStyle = darkOutlineColor
-		mainContext.textBaseline = "middle"
-		mainContext.textAlign = "center"
-		mainContext.lineWidth = 8
-		mainContext.lineJoin = "round"
-		mainContext.strokeText(tmpText, 0, -35 - 34)
-		mainContext.fillText(tmpText, 0, -35 - 34)
-		if (player.CROWN) {
-			mainContext.drawImage(
-				await loadImage("img/icons/crown", iconSprites),
-				-60 / 2 - mainContext.measureText(tmpText).width / 2 - 35,
-				-35 - 34 - 60 / 2 - 5,
-				60,
-				60
-			)
-		}
-		if (player.SKULL) {
-			mainContext.drawImage(
-				await loadImage("img/icons/skull", iconSprites),
-				-60 / 2 + mainContext.measureText(tmpText).width / 2 + 35,
-				-35 - 34 - 60 / 2 - 5,
-				60,
-				60
-			)
-		}
-		mainContext.restore()
+if (player.TRIBENAME || player.NAME || player.SKULL || player.CROWN) {
+	mainContext.save();
+	const tmpText = (player.TRIBENAME ? `[${player.TRIBENAME}] ` : "") + (player.NAME || "");
+	mainContext.font = `30px Hammersmith One`;
+	mainContext.fillStyle = "#fff";
+	mainContext.strokeStyle = darkOutlineColor;
+	mainContext.textBaseline = "middle";
+	mainContext.textAlign = "center";
+	mainContext.lineWidth = 8;
+	mainContext.lineJoin = "round";
+	const textY = -35 - 34;
+
+	// Tekst nicku
+	mainContext.strokeText(tmpText, 0, textY);
+	mainContext.fillText(tmpText, 0, textY);
+
+	// Korona zawsze nad graczem, niezależnie od długości nicku
+	if (player.CROWN) {
+		mainContext.drawImage(
+			await loadImage("img/icons/crown", iconSprites),
+			-30,
+			textY - 60 - 20,
+			60,
+			60
+		);
 	}
+
+	// Czaszka nadal przy prawej stronie tekstu
+	if (player.SKULL) {
+		mainContext.drawImage(
+			await loadImage("img/icons/skull", iconSprites),
+			mainContext.measureText(tmpText).width / 2 + 35 - 30,
+			textY - 35,
+			60,
+			60
+		);
+	}
+
+	mainContext.restore();
+}
+
 	if (parseFloat(player.HEALTH)) {
 		mainContext.save()
 		mainContext.fillStyle = darkOutlineColor
